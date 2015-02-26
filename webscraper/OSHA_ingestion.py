@@ -20,7 +20,7 @@ incorporate the latest update date into the path URL.
 # Authors:  Rebecca Bilbro <bilbro@gmail.com>, Bala Venkatesan <rvbalas@gmail.com>
 # Date:     Feb 26, 2015
 
-# Special thanks to Benjamin Benfort for his support and assistance!
+# Special thanks to Benjamin Bengfort for his support and assistance!
 
 """
 Ingest data on workplace fatalities, investigations, and violations
