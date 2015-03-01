@@ -1,24 +1,19 @@
+"""
+NOTE:
 
-# FYI this is still in development!
+The CSV files with historical data on workplace inspections, violations,
+and fatalities/catastrophes are updated every few days, so the URLs
+change regularly. 
+
+Before running this program, use OSHA_URLfinder.py provided at:
+http://github.com/OSHADataDoor/FatalityMapper/tree/master/webscraper
+to identify the latest URL names and update the task list below.
 
 """
-The data catalog is updated approximately every other day,
-so the URL  changes regularly to reflect the most current update.
-We are updating the code below to add a helper function to
-incorporate the latest update date into the path URL.
-"""
-
-#
-#
-#
-#
-#
-#
-
 
 # Title:    OSHA_ingestion.py
 # Authors:  Rebecca Bilbro <bilbro@gmail.com>, Bala Venkatesan <rvbalas@gmail.com>
-# Date:     Feb 26, 2015
+# Date:     March 1, 2015
 
 # Special thanks to Benjamin Bengfort for his support and assistance!
 
@@ -30,7 +25,6 @@ from the OSHA data catalog.
 ##########################################################################
 ## Imports
 ##########################################################################
-
 import os
 import re
 import sys
@@ -42,7 +36,6 @@ from urlparse import urlsplit, urljoin
 ##########################################################################
 ## Fixtures
 ##########################################################################
-
 DATA_URL_BASE = "http://prd-enforce-xfr-02.dol.gov/data_catalog/OSHA/"
 CATALOGS_URL  = "http://ogesdw.dol.gov/views/data_catalogs.php"
 
@@ -52,7 +45,7 @@ CATALOGS_URL  = "http://ogesdw.dol.gov/views/data_catalogs.php"
 
 def filename_from_url(url):
     """
-    Parses a URL and returns only the filename
+    Parses a URL and returns the filename
     """
     parts = urlsplit(url)
     return os.path.basename(parts.path)
@@ -66,8 +59,7 @@ def download_osha_data(url, path=None):
     # If path is None, save to the URL basename
     path = path or filename_from_url(url)
 
-    # Stream response and save to disk chunks at a time
-    # to prevent large datasets from overwhelming the computer
+    # Stream response and save to disk in chunks
     response = requests.get(url, stream=True)
     with open(path, 'w') as out:
         for chunk in response.iter_content(chunk_size=16384):
@@ -84,10 +76,12 @@ def scrape(paths, base=DATA_URL_BASE):
 
 if __name__ == '__main__':
 
+    # Remember to update the task assignments below using the
+    # latest URL names! These were the paths as of 3/1/2015
     tasks = {
         'accident': 'osha_accident_20150223.csv.zip',
-        'inspection': 'osha_inspection_20150223.csv.zip',
-        'violation': 'osha_violation_20150223.csv.zip',
+        'inspection': 'osha_inspection_20150228.csv.zip',
+        'violation': 'osha_violation_20150228.csv.zip',
     }
 
     scrape(tasks.values())
