@@ -41,7 +41,8 @@ database captures these consistently and reliably starting 1990,
 and a 2011 system upgrade makes most reliable time series slice 
 roughly 1990-2010.
 """
-soup.select('a[href*="/osha_accident_20"]')
+accidents = soup.select('a[href*="/osha_accident_20"]')
+print "Accidents filename: ", "\n", accidents
 
 ##########################################################################
 ## Inspections
@@ -54,8 +55,8 @@ OSHA and State Plan states (non-Federal jusidictions) since the
 starting 1990, and a 2011 system upgrade makes most reliable time 
 series slice roughly 1990-2010. 
 """
-soup.select('a[href*="/osha_inspection_20"]')
-
+inspections = soup.select('a[href*="/osha_inspection_20"]')
+print "Inspections filename: ", "\n", inspections
 ##########################################################################
 ## Violations
 ## CSV will look something like "osha_violation_20######.csv.zip" 
@@ -67,14 +68,5 @@ or State Plan states (non-Federal jusidictions) since the
 starting 1990, and a 2011 system upgrade makes most reliable time 
 series slice roughly 1990-2010.
 """
-soup.select('a[href*="/osha_violation_20"]')
-
-##########################################################################
-## Task Assignments
-## These were the filenames as of 3/1/2015 -- update accordingly.
-##########################################################################
-tasks = {
-        'accident': 'osha_accident_20150223.csv.zip',
-        'inspection': 'osha_inspection_20150228.csv.zip',
-        'violation': 'osha_violation_20150228.csv.zip',
-    }
+violations = soup.select('a[href*="/osha_violation_20"]')
+print "Violations filename: ", "\n", violations
