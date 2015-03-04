@@ -77,11 +77,11 @@ def scrape(paths, base=DATA_URL_BASE):
 if __name__ == '__main__':
 
     # Remember to update the task assignments below using the
-    # latest URL names! These were the paths as of 3/1/2015
+    # latest URL names! These were the paths as of 3/4/2015
     tasks = {
-        'accident': 'osha_accident_20150223.csv.zip',
-        'inspection': 'osha_inspection_20150228.csv.zip',
-        'violation': 'osha_violation_20150228.csv.zip',
+        'accident': 'osha_accident_20150302.csv.zip',
+        'inspection': 'osha_inspection_20150304.csv.zip',
+        'violation': 'osha_violation_20150304.csv.zip',
     }
 
     scrape(tasks.values())
