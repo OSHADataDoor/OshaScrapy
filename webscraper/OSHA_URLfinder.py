@@ -4,7 +4,7 @@ The CSV files with historical data on workplace inspections, violations,
 and fatalities/catastrophes are updated every few days, so the URLs 
 change regularly. Use BeautifulSoup to find the latest URLs to use in
 the OSHA_ingestion.py file provided at 
-http://github.com/OSHADataDoor/FatalityMapper/tree/master/webscraper
+http://github.com/OSHADataDoor/OshaScrapy/tree/master/webscraper
 """
 
 ##########################################################################

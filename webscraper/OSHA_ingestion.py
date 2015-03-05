@@ -6,7 +6,7 @@ and fatalities/catastrophes are updated every few days, so the URLs
 change regularly. 
 
 Before running this program, use OSHA_URLfinder.py provided at:
-http://github.com/OSHADataDoor/FatalityMapper/tree/master/webscraper
+http://github.com/OSHADataDoor/OshaScrapy/tree/master/webscraper
 to identify the latest URL names and update the task list below.
 
 """
